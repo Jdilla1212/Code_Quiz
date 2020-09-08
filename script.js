@@ -73,46 +73,62 @@ let questionAnswerArray = [{
   }
 ];
 
+let index = 0;
 let currentQuestion = questionAnswerArray[0];
+newQuestion();
 
-question.textContent = currentQuestion.Question;
-button1.textContent = currentQuestion.Answers[0];
-button2.textContent = currentQuestion.Answers[1];
-button3.textContent = currentQuestion.Answers[2];
-button4.textContent = currentQuestion.Answers[3];
+function newQuestion() {
+  currentQuestion = questionAnswerArray[index]
+  question.textContent = currentQuestion.Question;
+  button1.textContent = currentQuestion.Answers[0];
+  button2.textContent = currentQuestion.Answers[1];
+  button3.textContent = currentQuestion.Answers[2];
+  button4.textContent = currentQuestion.Answers[3];
+  if (index > questionAnswerArray.length) {
+    return;
+  }
+}
 
-button1.addEventListener("click", function(event){
+button1.addEventListener("click", function (event) {
   event.preventDefault;
   if (button1.textContent === currentQuestion.CorrectAnswer) {
     alert("correct");
   } else {
     alert("wrongggg");
-  }
+  };
+  index++;
+  newQuestion();
 });
 
-button2.addEventListener("click", function(event){
+button2.addEventListener("click", function (event) {
   event.preventDefault;
   if (button2.textContent === currentQuestion.CorrectAnswer) {
     alert("correct");
   } else {
     alert("wrongggg");
-  }
+  };
+  index++;
+  newQuestion();
 });
 
-button3.addEventListener("click", function(event){
+button3.addEventListener("click", function (event) {
   event.preventDefault;
   if (button3.textContent === currentQuestion.CorrectAnswer) {
     alert("correct");
   } else {
     alert("wrongggg");
-  }
+  };
+  index++;
+  newQuestion();
 });
 
-button4.addEventListener("click", function(event){
+button4.addEventListener("click", function (event) {
   event.preventDefault;
   if (button4.textContent === currentQuestion.CorrectAnswer) {
     alert("correct");
   } else {
     alert("wrongggg");
-  }
+  };
+  index++;
+  newQuestion();
 });
