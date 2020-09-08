@@ -49,27 +49,27 @@ resetButton.addEventListener("click", function (event) {
 let questionAnswerArray = [{
     Question: "q1",
     Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "correct answer"
+    CorrectAnswer: "answer 1"
   },
   {
     Question: "q2",
     Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "correct answer"
+    CorrectAnswer: "answer 2"
   },
   {
     Question: "q3",
     Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "correct answer"
+    CorrectAnswer: "answer 3"
   },
   {
     Question: "q4",
     Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "correct answer"
+    CorrectAnswer: "answer 4"
   },
   {
     Question: "q5",
     Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "correct answer"
+    CorrectAnswer: "answer 1"
   }
 ];
 
@@ -80,3 +80,39 @@ button1.textContent = currentQuestion.Answers[0];
 button2.textContent = currentQuestion.Answers[1];
 button3.textContent = currentQuestion.Answers[2];
 button4.textContent = currentQuestion.Answers[3];
+
+button1.addEventListener("click", function(event){
+  event.preventDefault;
+  if (button1.textContent === currentQuestion.CorrectAnswer) {
+    alert("correct");
+  } else {
+    alert("wrongggg");
+  }
+});
+
+button2.addEventListener("click", function(event){
+  event.preventDefault;
+  if (button2.textContent === currentQuestion.CorrectAnswer) {
+    alert("correct");
+  } else {
+    alert("wrongggg");
+  }
+});
+
+button3.addEventListener("click", function(event){
+  event.preventDefault;
+  if (button3.textContent === currentQuestion.CorrectAnswer) {
+    alert("correct");
+  } else {
+    alert("wrongggg");
+  }
+});
+
+button4.addEventListener("click", function(event){
+  event.preventDefault;
+  if (button4.textContent === currentQuestion.CorrectAnswer) {
+    alert("correct");
+  } else {
+    alert("wrongggg");
+  }
+});
