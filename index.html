@@ -10,11 +10,12 @@
          integrity = "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
          crossorigin = "anonymous">
       
-      <title>Bootstrap 4 Example</title>
+      <title>Coding Quiz</title>
       <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
-          <button class="btn btn-outline-success" type="button">Reset</button>
-          <button class="btn btn-sm btn-outline-secondary" type="button">View High Scores</button>
+          <button id="start" class="btn btn-outline-success" type="button">Start</button>
+          <button id="reset" class="btn btn-outline-success" type="button">Reset</button>
+          <button id="highscore" class="btn btn-sm btn-outline-secondary" type="button">View High Scores</button>
         </form>
       </nav>
       <div class="col text-right">
@@ -23,13 +24,14 @@
    </head>
    
    <body>
-      <div class = "container">
-         <h2>Vertical Button Group</h2>
+      <h2 id="welcomeheader" style="text-align: center;">Welcome to the Coding Quiz!  Press 'Start' to begin</h2>
+      <div id="quizdiv" class = "container">
+         <h2 id="question">Question</h2>
          <div class = "btn-group-vertical" role = "group">
-            <button id="button1" type = "button" class = "btn btn-info">Cricket</button>
-            <button id="button2" type = "button" class = "btn btn-info">Football</button>
-            <button id="button3" type = "button" class = "btn btn-info">Hockey</button>
-            <button id="button44" type = "button" class = "btn btn-info">Hockey</button>
+            <button id="button1" type = "button" class = "btn btn-info">Button1</button>
+            <button id="button2" type = "button" class = "btn btn-info">Button2</button>
+            <button id="button3" type = "button" class = "btn btn-info">Button3</button>
+            <button id="button4" type = "button" class = "btn btn-info">Button4</button>
          </div>
       </div>
       
