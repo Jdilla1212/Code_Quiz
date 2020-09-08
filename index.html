@@ -15,7 +15,7 @@
         <form class="form-inline">
           <button id="start" class="btn btn-outline-success" type="button">Start</button>
           <button id="reset" class="btn btn-outline-success" type="button">Reset</button>
-          <button id="highscore" class="btn btn-sm btn-outline-secondary" type="button">View High Scores</button>
+          <a style="background-color: lightslategray;" class="btn btn-primary" href="highscore.html" role="button">View High Score</a>
         </form>
       </nav>
       <div class="col text-right">
@@ -28,13 +28,22 @@
       <div id="quizdiv" class = "container">
          <h2 id="question">Question</h2>
          <div class = "btn-group-vertical" role = "group">
-            <button id="button1" type = "button" class = "btn btn-info">Button1</button>
-            <button id="button2" type = "button" class = "btn btn-info">Button2</button>
-            <button id="button3" type = "button" class = "btn btn-info">Button3</button>
-            <button id="button4" type = "button" class = "btn btn-info">Button4</button>
+            <button style="margin: 1px;" id="button1" type = "button" class = "btn btn-info">Button1</button>
+            <button style="margin: 1px;" id="button2" type = "button" class = "btn btn-info">Button2</button>
+            <button style="margin: 1px;" id="button3" type = "button" class = "btn btn-info">Button3</button>
+            <button style="margin: 1px;" id="button4" type = "button" class = "btn btn-info">Button4</button>
          </div>
       </div>
-      
+      <div id="scoreinput" class = "container">
+         <h3 style="text-align: center;">Your high score is <span id="endscore">0</span></h3>
+         <h3 style="text-align: center;">Input Initials</h3>
+         <div class="input-group mb-3">
+            <input id="playerinitials" type="text" class="form-control" placeholder="Initials" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="scorebutton">Submit</button>
+            </div>
+          </div>
+      </div>
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js" 
          integrity = "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 

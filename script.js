@@ -7,25 +7,40 @@ const button4 = document.querySelector("#button4");
 const startButton = document.querySelector("#start");
 const resetButton = document.querySelector("#reset");
 const highScoreButton = document.querySelector("#highscore");
+const scoreInput = document.querySelector("#scoreinput");
+const endScore = document.querySelector("#endscore");
+const scoreButton = document.querySelector("#scorebutton");
+const highScoreList = document.querySelector("#highscorelist");
 
 let secondsLeft = 60;
 let questionDisplay = document.querySelector("#quizdiv");
 questionDisplay.style.display = "none";
 let welcomeHeader = document.querySelector("#welcomeheader");
+let timerInterval;
+scoreInput.style.display = "none";
 
 //timer function
 function setTime() {
-  let timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds left";
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
+      endQuiz();
+      secondsLeft = 0;
+      timeEl.textContent = secondsLeft + " seconds left";
     }
 
   }, 1000);
 };
+
+function endQuiz() {
+  clearInterval(timerInterval);
+  endScore.textContent = secondsLeft;
+  questionDisplay.style.display = "none";
+  scoreInput.style.display = "block";
+}
 
 // Start button starts the timer/quiz 
 startButton.addEventListener("click", function (event) {
@@ -47,29 +62,29 @@ resetButton.addEventListener("click", function (event) {
 
 
 let questionAnswerArray = [{
-    Question: "q1",
-    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "answer 1"
+    Question: "An array gets wrapped in ___",
+    Answers: ["[   ]", "<   >", "{   }", "|   |"],
+    CorrectAnswer: "[   ]"
   },
   {
-    Question: "q2",
-    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "answer 2"
+    Question: "An 'If/Else' statement can contain ...",
+    Answers: ["Just an 'If' statement", "an 'If' AND an 'Else'", "An 'If', 'Else If' and 'Else'", "All of the above"],
+    CorrectAnswer: "All of the above"
   },
   {
-    Question: "q3",
-    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "answer 3"
+    Question: "CSS stands for ___",
+    Answers: ["Circulating style sheets", "Cascading style sheets", "Circulating syntax sheets", "Cascading syntax sheets"],
+    CorrectAnswer: "Cascading style sheets"
   },
   {
-    Question: "q4",
-    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "answer 4"
+    Question: "Javascript is ...",
+    Answers: ["The same thing as Java", "The same thing as JQuery", "Essential for any web page/application", "a language built into every modern web browser"],
+    CorrectAnswer: "a language built into every modern web browser"
   },
   {
-    Question: "q5",
-    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    CorrectAnswer: "answer 1"
+    Question: "An easy way to 'debug' your code in javascript is to use ___",
+    Answers: ["an if/else statement", "Math.random", "console.log", "CTRL+Z"],
+    CorrectAnswer: "console.log"
   }
 ];
 
@@ -77,17 +92,30 @@ let index = 0;
 let currentQuestion = questionAnswerArray[0];
 newQuestion();
 
+
 function newQuestion() {
-  currentQuestion = questionAnswerArray[index]
-  question.textContent = currentQuestion.Question;
-  button1.textContent = currentQuestion.Answers[0];
-  button2.textContent = currentQuestion.Answers[1];
-  button3.textContent = currentQuestion.Answers[2];
-  button4.textContent = currentQuestion.Answers[3];
-  if (index > questionAnswerArray.length) {
-    return;
+  if (index >= questionAnswerArray.length) {
+    endQuiz();
+  } else {
+    currentQuestion = questionAnswerArray[index];
+    question.textContent = currentQuestion.Question;
+    button1.textContent = currentQuestion.Answers[0];
+    button2.textContent = currentQuestion.Answers[1];
+    button3.textContent = currentQuestion.Answers[2];
+    button4.textContent = currentQuestion.Answers[3];
   }
 }
+
+scoreButton.addEventListener("click", function(event) {
+  event.preventDefault;
+  let playerInitials = document.querySelector("#playerinitials");
+  let value = playerInitials.value;
+  console.log(value);
+  playerInitials.textContent = "";
+  let liNode = document.createElement("li");
+  liNode.textContent = "Player: " + value + " score: " + secondsLeft;
+  highScoreList.appendChild(liNode);
+})
 
 button1.addEventListener("click", function (event) {
   event.preventDefault;
@@ -95,6 +123,8 @@ button1.addEventListener("click", function (event) {
     alert("correct");
   } else {
     alert("wrongggg");
+    secondsLeft -= 10;
+    timeEl.textContent = secondsLeft + " seconds left";
   };
   index++;
   newQuestion();
@@ -106,6 +136,8 @@ button2.addEventListener("click", function (event) {
     alert("correct");
   } else {
     alert("wrongggg");
+    secondsLeft -= 10;
+    timeEl.textContent = secondsLeft + " seconds left";
   };
   index++;
   newQuestion();
@@ -117,6 +149,8 @@ button3.addEventListener("click", function (event) {
     alert("correct");
   } else {
     alert("wrongggg");
+    secondsLeft -= 10;
+    timeEl.textContent = secondsLeft + " seconds left";
   };
   index++;
   newQuestion();
@@ -128,6 +162,8 @@ button4.addEventListener("click", function (event) {
     alert("correct");
   } else {
     alert("wrongggg");
+    secondsLeft -= 10;
+    timeEl.textContent = secondsLeft + " seconds left";
   };
   index++;
   newQuestion();
