@@ -9,6 +9,8 @@ const resetButton = document.querySelector("#reset");
 const highScoreButton = document.querySelector("#highscore");
 
 let secondsLeft = 60;
+let questionDisplay = document.querySelector("#quizdiv");
+questionDisplay.style.display = "none";
 
 
 //timer function
@@ -24,6 +26,20 @@ function setTime() {
 
   }, 1000);
 };
+
+// Start button starts the timer/quiz 
+startButton.addEventListener("click", function (event) {
+  event.preventDefault;
+  if (secondsLeft = 60) {
+    setTime();
+  } else {
+    clearInterval(timerInterval);
+    return;
+  };
+  questionDisplay.style.display = "block";
+  welcomeHeader.style.display = "none";
+});
+
 
 
 let questionAnswerArray = [{
