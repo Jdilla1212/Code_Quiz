@@ -106,14 +106,40 @@ function newQuestion() {
   }
 }
 
+// scoreButton.addEventListener("click", function(event) {
+//   event.preventDefault;
+//   let playerInitials = document.querySelector("#playerinitials");
+//   let value = playerInitials.value;
+//   console.log(value);
+//   playerInitials.textContent = "";
+//   let liNode = document.createElement("li");
+//   liNode.textContent = "Player: " + value + " score: " + secondsLeft;
+//   highScoreList.appendChild(liNode);
+// })
+
 scoreButton.addEventListener("click", function(event) {
   event.preventDefault;
   let playerInitials = document.querySelector("#playerinitials");
   let value = playerInitials.value;
   console.log(value);
   playerInitials.textContent = "";
+  // create an object to store initials and score
+  let player = {
+    init: value,
+    score: secondsLeft
+  };
+  // grab current saved high scores -- need object formation for JSON readability 
+  let highScores = JSON.parse(window.localStorage.getItem('highscores')) || [];
+  // add new player to high scores list
+  highScores.push(player);
+  // set localstorage to new high scores list -- JSON format going in 
+  window.localStorage.setItem('highscores', JSON.stringify(highScores));
+  // send them to high scores page
+  window.location.href = "highscore.html";
+  //  ** move this functionality to another js page and connect that page to highscore.html
   let liNode = document.createElement("li");
-  liNode.textContent = "Player: " + value + " score: " + secondsLeft;
+  liNode.textContent = "Player: " + player.init + " score: " + player.score;
+  console.log(liNode)
   highScoreList.appendChild(liNode);
 })
 
