@@ -1,5 +1,5 @@
 const timeEl = document.querySelector(".time");
-const question = document.querySelector(".question");
+const question = document.querySelector("#question");
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
@@ -47,28 +47,36 @@ resetButton.addEventListener("click", function (event) {
 
 
 let questionAnswerArray = [{
-    question: "q1",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer: "correct answer"
+    Question: "q1",
+    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
+    CorrectAnswer: "correct answer"
   },
   {
-    question: "q2",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer: "correct answer"
+    Question: "q2",
+    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
+    CorrectAnswer: "correct answer"
   },
   {
-    question: "q3",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer: "correct answer"
+    Question: "q3",
+    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
+    CorrectAnswer: "correct answer"
   },
   {
-    question: "q4",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer: "correct answer"
+    Question: "q4",
+    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
+    CorrectAnswer: "correct answer"
   },
   {
-    question: "q5",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer: "correct answer"
+    Question: "q5",
+    Answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
+    CorrectAnswer: "correct answer"
   }
 ];
+
+let currentQuestion = questionAnswerArray[0];
+
+question.textContent = currentQuestion.Question;
+button1.textContent = currentQuestion.Answers[0];
+button2.textContent = currentQuestion.Answers[1];
+button3.textContent = currentQuestion.Answers[2];
+button4.textContent = currentQuestion.Answers[3];
