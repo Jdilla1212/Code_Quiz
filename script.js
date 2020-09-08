@@ -40,6 +40,10 @@ startButton.addEventListener("click", function (event) {
   welcomeHeader.style.display = "none";
 });
 
+// reset button reloads the page to start over
+resetButton.addEventListener("click", function (event) {
+  location.reload();
+});
 
 
 let questionAnswerArray = [{
