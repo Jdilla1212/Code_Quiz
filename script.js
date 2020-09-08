@@ -11,7 +11,7 @@ const highScoreButton = document.querySelector("#highscore");
 let secondsLeft = 60;
 let questionDisplay = document.querySelector("#quizdiv");
 questionDisplay.style.display = "none";
-
+let welcomeHeader = document.querySelector("#welcomeheader");
 
 //timer function
 function setTime() {
