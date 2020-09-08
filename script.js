@@ -137,10 +137,10 @@ scoreButton.addEventListener("click", function(event) {
   // send them to high scores page
   window.location.href = "highscore.html";
   //  ** move this functionality to another js page and connect that page to highscore.html
-  let liNode = document.createElement("li");
-  liNode.textContent = "Player: " + player.init + " score: " + player.score;
-  console.log(liNode)
-  highScoreList.appendChild(liNode);
+  // let liNode = document.createElement("li");
+  // liNode.textContent = "Player: " + player.init + " score: " + player.score;
+  // console.log(liNode)
+  // highScoreList.appendChild(liNode);
 })
 
 button1.addEventListener("click", function (event) {
