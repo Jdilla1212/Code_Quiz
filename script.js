@@ -1,3 +1,4 @@
+//Main javascript file
 const timeEl = document.querySelector(".time");
 const question = document.querySelector("#question");
 const button1 = document.querySelector("#button1");
@@ -12,6 +13,7 @@ const endScore = document.querySelector("#endscore");
 const scoreButton = document.querySelector("#scorebutton");
 const highScoreList = document.querySelector("#highscorelist");
 
+//Some variables for the timer to function and some HTML elements to be hidden until needed
 let secondsLeft = 60;
 let questionDisplay = document.querySelector("#quizdiv");
 questionDisplay.style.display = "none";
@@ -35,6 +37,7 @@ function setTime() {
   }, 1000);
 };
 
+//Function to end the quiz and allow user to input their initials for the leader board
 function endQuiz() {
   clearInterval(timerInterval);
   endScore.textContent = secondsLeft;
@@ -60,7 +63,7 @@ resetButton.addEventListener("click", function (event) {
   location.reload();
 });
 
-
+//Array of objects for the questions, wrong answers and correct answers
 let questionAnswerArray = [{
     Question: "An array gets wrapped in ___",
     Answers: ["[   ]", "<   >", "{   }", "|   |"],
@@ -88,11 +91,12 @@ let questionAnswerArray = [{
   }
 ];
 
+//Global variables for the newQuestion function
 let index = 0;
 let currentQuestion = questionAnswerArray[0];
 newQuestion();
 
-
+//Function that brings up the next question after one has been answered
 function newQuestion() {
   if (index >= questionAnswerArray.length) {
     endQuiz();
@@ -106,43 +110,32 @@ function newQuestion() {
   }
 }
 
-// scoreButton.addEventListener("click", function(event) {
-//   event.preventDefault;
-//   let playerInitials = document.querySelector("#playerinitials");
-//   let value = playerInitials.value;
-//   console.log(value);
-//   playerInitials.textContent = "";
-//   let liNode = document.createElement("li");
-//   liNode.textContent = "Player: " + value + " score: " + secondsLeft;
-//   highScoreList.appendChild(liNode);
-// })
 
+//Button functionality for the user to input initials
 scoreButton.addEventListener("click", function(event) {
   event.preventDefault;
   let playerInitials = document.querySelector("#playerinitials");
   let value = playerInitials.value;
   console.log(value);
   playerInitials.textContent = "";
-  // create an object to store initials and score
+  
+  //Object to use JSON to navigate to scores.js file to properly store high scores
   let player = {
     init: value,
     score: secondsLeft
   };
-  // grab current saved high scores -- need object formation for JSON readability 
+  
   let highScores = JSON.parse(window.localStorage.getItem('highscores')) || [];
-  // add new player to high scores list
+  
   highScores.push(player);
-  // set localstorage to new high scores list -- JSON format going in 
+  
   window.localStorage.setItem('highscores', JSON.stringify(highScores));
-  // send them to high scores page
+  
   window.location.href = "highscore.html";
-  //  ** move this functionality to another js page and connect that page to highscore.html
-  // let liNode = document.createElement("li");
-  // liNode.textContent = "Player: " + player.init + " score: " + player.score;
-  // console.log(liNode)
-  // highScoreList.appendChild(liNode);
+  
 })
 
+//Button listener to check if correct answer is selected
 button1.addEventListener("click", function (event) {
   event.preventDefault;
   if (button1.textContent === currentQuestion.CorrectAnswer) {
@@ -155,7 +148,7 @@ button1.addEventListener("click", function (event) {
   index++;
   newQuestion();
 });
-
+//Button listener to check if correct answer is selected
 button2.addEventListener("click", function (event) {
   event.preventDefault;
   if (button2.textContent === currentQuestion.CorrectAnswer) {
@@ -168,7 +161,7 @@ button2.addEventListener("click", function (event) {
   index++;
   newQuestion();
 });
-
+//Button listener to check if correct answer is selected
 button3.addEventListener("click", function (event) {
   event.preventDefault;
   if (button3.textContent === currentQuestion.CorrectAnswer) {
@@ -181,7 +174,7 @@ button3.addEventListener("click", function (event) {
   index++;
   newQuestion();
 });
-
+//Button listener to check if correct answer is selected
 button4.addEventListener("click", function (event) {
   event.preventDefault;
   if (button4.textContent === currentQuestion.CorrectAnswer) {

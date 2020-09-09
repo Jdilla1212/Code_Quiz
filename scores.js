@@ -1,8 +1,9 @@
+//Javascript file for the leader board page
 let highScores = JSON.parse(window.localStorage.getItem('highscores')) || [];
 let highScoreList = document.querySelector("#highscorelist");
 clearButton = document.querySelector("#clearbutton");
 
-
+//Function to append new scores to the leader board
 function appendHighScores() {
     // .sort to sort thru high scores
     for (let i = 0; i < highScores.length; i++) {
